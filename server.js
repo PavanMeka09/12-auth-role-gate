@@ -58,8 +58,8 @@ const GUEST_TOKEN = 'guest-token';
 
 function authenticate(req, res, next) {
   const authHeader = req.headers.authorization || '';
-  const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : GUEST_TOKEN;
-  const session = req.store.sessions[token];
+  const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : null;
+  const session = token ? req.store.sessions[token] : null;
   if (!session) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
@@ -99,7 +99,7 @@ app.get('/api/candidates', authenticate, (req, res) => {
   res.json({ candidates: req.store.candidates });
 });
 
-app.get('/api/candidates/:id', (req, res) => {
+app.get('/api/candidates/:id', authenticate, (req, res) => {
   const id = Number(req.params.id);
   const candidate = req.store.candidates.find((c) => c.id === id);
   if (!candidate) {

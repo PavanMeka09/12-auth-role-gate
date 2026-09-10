@@ -123,7 +123,7 @@ app.post('/api/candidates', authenticate, requireRole(['ADMIN', 'AGENT']), (req,
   res.status(201).json({ candidate });
 });
 
-app.patch('/api/candidates/:id', authenticate, requireRole(['AGENT']), (req, res) => {
+app.patch('/api/candidates/:id', authenticate, requireRole(['ADMIN', 'AGENT']), (req, res) => {
   const id = Number(req.params.id);
   const candidate = req.store.candidates.find((c) => c.id === id);
   if (!candidate) {

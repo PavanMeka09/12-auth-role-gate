@@ -143,7 +143,8 @@ app.get('/api/users', authenticate, (req, res) => {
   if (req.role !== 'ADMIN') {
     return res.status(403).json({ error: 'Forbidden' });
   }
-  res.json({ users: req.store.users });
+  const users = req.store.users.map(({ id, username, role }) => ({ id, username, role }));
+  res.json({ users });
 });
 
 // --- tooling: /api/reset and /spec (not part of the app under test; reachable without auth) ---

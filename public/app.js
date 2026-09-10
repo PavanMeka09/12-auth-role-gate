@@ -109,6 +109,9 @@ logoutBtn.addEventListener('click', () => {
   dashboard.classList.add('hidden');
   usersPanel.classList.add('hidden');
   whoEl.classList.add('hidden');
+  localStorage.removeItem('token');
+  localStorage.removeItem('role');
+  localStorage.removeItem('username');
 });
 
 addToggleBtn.addEventListener('click', () => {

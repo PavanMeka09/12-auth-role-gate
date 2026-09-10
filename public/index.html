@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Auth Role Gate</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>Candidate Admin (demo)</h1>
+  <div id="who" class="who hidden">
+    <span id="who-text"></span>
+    <button id="manage-users-btn" class="secondary hidden">Manage Users</button>
+    <button id="logout-btn" class="secondary">Logout</button>
+  </div>
+  <div class="tooling-actions">
+    <button id="reset-btn" type="button" title="Testing tool — not part of the app under test">↺ Reset data</button>
+    <a href="/spec" target="_blank" rel="noopener" title="Testing tool — not part of the app under test">📋 Spec</a>
+    <a href="/openapi.json" target="_blank" rel="noopener" title="Testing tool — not part of the app under test">📥 API collection</a>
+  </div>
+</header>
+
+<main>
+  <section id="login-panel" class="panel">
+    <h2>Login</h2>
+    <p class="hint">Demo accounts: admin/admin123 · agent/agent123 · viewer/viewer123</p>
+    <div class="field">
+      <label for="username">Username</label>
+      <input id="username" type="text" />
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input id="password" type="password" />
+    </div>
+    <button id="login-btn">Login</button>
+    <div id="login-error" class="error hidden"></div>
+  </section>
+
+  <section id="dashboard" class="panel hidden">
+    <div class="panel-header">
+      <h2>Candidates</h2>
+      <button id="add-toggle-btn" class="hidden">Add Candidate</button>
+    </div>
+
+    <div id="add-form" class="add-form hidden">
+      <input id="new-name" type="text" placeholder="Name" />
+      <input id="new-email" type="text" placeholder="Email" />
+      <button id="create-btn">Create</button>
+    </div>
+
+    <table id="candidates-table">
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Email</th><th>Status</th><th>Actions</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div id="toast" class="toast hidden"></div>
+  </section>
+
+  <section id="users-panel" class="panel hidden">
+    <h2>Manage Users</h2>
+    <table id="users-table">
+      <thead>
+        <tr><th>ID</th><th>Username</th><th>Role</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</main>
+
+<script src="app.js"></script>
+<script>window.SV_APP_ID='12';window.SV_SCOREBOARD='https://sv-qa-scoreboard.onrender.com';</script>
+<script src="report-widget.js"></script>
+</body>
+</html>

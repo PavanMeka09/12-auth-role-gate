@@ -1,0 +1,28 @@
+* { box-sizing: border-box; }
+body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; background: #f5f6f8; color: #1a1a1a; }
+header { background: #0B63E5; color: #fff; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; }
+header h1 { margin: 0; font-size: 20px; }
+.who { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+main { max-width: 720px; margin: 24px auto; padding: 0 16px; }
+.panel { background: #fff; border: 1px solid #e2e4e8; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+.panel-header { display: flex; align-items: center; justify-content: space-between; }
+.hint { color: #696a6f; font-size: 13px; }
+.field { margin-bottom: 10px; display: flex; flex-direction: column; gap: 4px; }
+.field label { font-size: 13px; color: #696a6f; }
+input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+button { background: #0B63E5; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 14px; }
+button.secondary { background: #eaeaeb; color: #1a1a1a; }
+button.danger { background: #E54545; }
+.error { color: #E54545; margin-top: 8px; font-size: 13px; }
+.add-form { display: flex; gap: 8px; margin-bottom: 12px; }
+table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #eee; font-size: 13px; }
+th { color: #696a6f; font-weight: 600; }
+.toast { margin-top: 12px; padding: 8px 12px; border-radius: 4px; background: #E7F6EC; color: #036B26; font-size: 13px; }
+.hidden { display: none; }
+
+/* tooling: reset/spec header controls (not part of the app under test) */
+header { position: relative; }
+.tooling-actions { position: absolute; top: 14px; right: 24px; display: flex; gap: 8px; align-items: center; }
+.tooling-actions button, .tooling-actions a { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.4); padding: 6px 12px; border-radius: 4px; font-size: 12px; text-decoration: none; cursor: pointer; }
+.tooling-toast { position: fixed; bottom: 16px; right: 16px; background: #1a1a1a; color: #fff; padding: 8px 16px; border-radius: 4px; font-size: 13px; z-index: 9999; opacity: 0.95; }

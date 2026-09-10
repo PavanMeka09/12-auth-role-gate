@@ -93,8 +93,11 @@ loginBtn.addEventListener('click', async () => {
   });
   const body = await res.json();
   if (!res.ok) {
+    loginError.textContent = body.error || 'Invalid credentials';
+    loginError.classList.remove('hidden');
     return;
   }
+  loginError.classList.add('hidden');
   localStorage.setItem('token', body.token);
   localStorage.setItem('role', body.role);
   localStorage.setItem('username', username);

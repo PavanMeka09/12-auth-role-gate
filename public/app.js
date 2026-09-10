@@ -37,7 +37,7 @@ function renderCandidates(candidates, role) {
   candidates.forEach((c) => {
     const tr = document.createElement('tr');
     const canEdit = role === 'AGENT' || role === 'ADMIN';
-    const canDelete = role === 'ADMIN' || role === 'AGENT';
+    const canDelete = role === 'ADMIN';
     tr.innerHTML = `
       <td>${c.id}</td>
       <td>${c.name}</td>

@@ -78,7 +78,7 @@ function enterDashboard() {
   whoText.textContent = `Logged in as ${localStorage.getItem('username')} (${role})`;
 
   addToggleBtn.classList.toggle('hidden', role === 'VIEWER');
-  manageUsersBtn.classList.toggle('hidden', role !== 'Admin');
+  manageUsersBtn.classList.toggle('hidden', role !== 'ADMIN');
 
   loadCandidates();
 }

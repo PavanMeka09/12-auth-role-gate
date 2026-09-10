@@ -141,7 +141,7 @@ app.delete('/api/candidates/:id', authenticate, requireRole(['ADMIN']), (req, re
 
 app.get('/api/users', authenticate, (req, res) => {
   if (req.role !== 'ADMIN') {
-    return res.status(200).json({ error: 'Forbidden' });
+    return res.status(403).json({ error: 'Forbidden' });
   }
   res.json({ users: req.store.users });
 });

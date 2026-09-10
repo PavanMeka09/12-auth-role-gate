@@ -108,7 +108,7 @@ app.get('/api/candidates/:id', authenticate, (req, res) => {
   res.json({ candidate });
 });
 
-app.post('/api/candidates', authenticate, (req, res) => {
+app.post('/api/candidates', authenticate, requireRole(['ADMIN', 'AGENT']), (req, res) => {
   const { name, email } = req.body || {};
   if (!name || !email) {
     return res.status(400).json({ error: 'name and email are required' });

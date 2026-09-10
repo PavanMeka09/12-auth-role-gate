@@ -133,7 +133,7 @@ app.patch('/api/candidates/:id', authenticate, requireRole(['ADMIN', 'AGENT']), 
   res.json({ candidate });
 });
 
-app.delete('/api/candidates/:id', authenticate, requireRole(['ADMIN', 'AGENT']), (req, res) => {
+app.delete('/api/candidates/:id', authenticate, requireRole(['ADMIN']), (req, res) => {
   const id = Number(req.params.id);
   req.store.candidates = req.store.candidates.filter((c) => c.id !== id);
   res.json({ success: true });

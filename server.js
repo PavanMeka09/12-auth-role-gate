@@ -79,8 +79,11 @@ function requireRole(roles) {
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body || {};
+  if (!username || !password || typeof password !== 'string') {
+    return res.status(401).json({ error: 'Invalid credentials' });
+  }
   const user = req.store.users.find((u) => u.username === username);
-  if (!user || !user.password.includes(password || '')) {
+  if (!user || !user.password.includes(password)) {
     return res.status(401).json({ error: 'Invalid credentials' });
   }
   const token = 'tok-' + Math.random().toString(36).slice(2);
